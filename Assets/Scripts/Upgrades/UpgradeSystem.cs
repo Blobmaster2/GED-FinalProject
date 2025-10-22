@@ -23,6 +23,10 @@ public class UpgradeSystem : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+
+        var json = Resources.Load<TextAsset>("Upgrades");
+
+        UpgradeManager.LoadUpgrades(json.text);
     }
 
     public void RollCards()
