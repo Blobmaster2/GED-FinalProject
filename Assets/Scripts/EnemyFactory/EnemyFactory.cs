@@ -1,16 +1,20 @@
 using UnityEngine;
 
-public class EnemyFactory : MonoBehaviour
+public static class EnemyFactory
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static void SpawnEnemy(string enemyID)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        switch (enemyID)
+        {
+            case "bat":
+                // spawn bat enemy
+                break;
+            case "walker":
+                // spawn a walker
+                break;
+            default:
+                // shows error
+                break;
+        }
     }
 }
