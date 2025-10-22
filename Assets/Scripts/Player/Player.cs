@@ -5,14 +5,14 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private BulletFactory bulletFactory;
 
-    public float moveSpeed { get; private set; } = 4f;
-    public float speedMultiplier { get; private set; } = 1f;
+    public float moveSpeed = 4f;
+    public float speedMultiplier = 1f;
 
-    public float totalBulletCooldown { get; private set; } = 1.5f;
-    public int bulletCount { get; private set; } = 1;
-    public int bulletSpread { get; private set; } = 30;
-    public float bulletSpeed { get; private set; } = 6f;
-    public float bulletDamage { get; private set; } = 1f;
+    public float totalBulletCooldown = 1.5f;
+    public int bulletCount = 1;
+    public int bulletSpread = 30;
+    public float bulletSpeed = 6f;
+    public float bulletDamage = 1f;
 
     private float bulletCooldown;
     private bool ableToShoot = true;
@@ -68,5 +68,10 @@ public class Player : MonoBehaviour
 
             bullet.Initialize(true, bulletDamage, bulletSpeed, direction);
         }
+    }
+
+    public static Player GetPlayer()
+    {
+        return GameObject.Find("Player").GetComponent<Player>();
     }
 }

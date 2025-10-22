@@ -14,12 +14,6 @@ public class PlayerControls : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    private Vector2 mouseInput;
-    private Vector3 previousMousePos;
-    private Vector3 cameraLerpPos;
-    private Vector3 previousCameraPos;
-    private float timeSinceStartCameraMove;
-
     Vector2 targetPosition = Vector2.zero;
 
     private Vector2 moveDir;
@@ -50,6 +44,7 @@ public class PlayerControls : MonoBehaviour
         targetPosition = rb.position 
             + (moveDir 
             * player.moveSpeed 
+            * player.speedMultiplier
             * Time.fixedDeltaTime);
 
         rb.MovePosition(targetPosition);
