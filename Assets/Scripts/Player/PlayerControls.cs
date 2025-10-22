@@ -28,23 +28,7 @@ public class PlayerControls : MonoBehaviour
 
     private void Awake()
     {
-        InitPlayerActions();
         rb = GetComponent<Rigidbody2D>();
-    }
-
-    private void InitPlayerActions()
-    {
-        playerInput.actions["Interact"].performed += (ctx) => Interact();
-    }
-
-    private void OnDisable()
-    {
-        DeInitPlayerActions();
-    }
-
-    private void DeInitPlayerActions()
-    {
-        playerInput.actions["Interact"].performed -= (ctx) => Interact();
     }
 
     private void Update()
@@ -59,8 +43,6 @@ public class PlayerControls : MonoBehaviour
         {
             moveDir = input;
         }
-
-        Debug.Log(moveDir);
     }
 
     private void FixedUpdate()
@@ -78,14 +60,14 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
-    private void Interact()
-    {
-
-    }
-
     private void Shoot(Vector2 direction)
     {
-        //spawnbullet(Vector2)
+        if (direction == Vector2.zero)
+        {
+            return;
+        }
+
+        player.Shoot(direction);
     }
 
     float GetAngle(Vector2 moveDir)
