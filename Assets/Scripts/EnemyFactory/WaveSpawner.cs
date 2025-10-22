@@ -13,17 +13,19 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private int spawnRadius; // the spawn radius around the player that the enemies are allowed to
                                               // spawn in
     
-    private Vector2 destinationPosition = new Vector2(); // this variable is to replaced with a *global variable* that
+    private Vector2 destinationPosition; // this variable is to replaced with a *global variable* that
                                                          // keeps track of the player position
 
     private int waveCount = 1;
+
+    private EnemyFactory factory;
     
     // this script should run a timer and spawn enemies according to the level and abilities of the player
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        factory = GetComponent<EnemyFactory>();
     }
 
     // Update is called once per frame
