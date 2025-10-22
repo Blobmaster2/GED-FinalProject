@@ -23,19 +23,17 @@ public class PlayerControls : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        playerInput.actions["Escape"].performed += (ctx) => CloseProgram();
     }
 
     private void Update()
     {
         var shootDir = playerInput.actions["ShootDirection"].ReadValue<Vector2>();
 
-        Debug.Log("SHOOT: " + shootDir);
-
         Shoot(shootDir);
 
         var input = playerInput.actions["Move"].ReadValue<Vector2>();
-
-        Debug.Log("MOVE: " + input);
 
         if (input != moveDir)
         {
@@ -74,5 +72,10 @@ public class PlayerControls : MonoBehaviour
         float angle = Mathf.Atan2(-moveDir.x, moveDir.y) * Mathf.Rad2Deg;
 
         return angle;
+    }
+
+    private void CloseProgram()
+    {
+        Application.Quit();
     }
 }

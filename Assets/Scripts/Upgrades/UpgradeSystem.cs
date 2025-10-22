@@ -8,6 +8,8 @@ public class UpgradeSystem : MonoBehaviour
 
     [SerializeField] private List<Card> cards;
 
+    [SerializeField] private bool developerMode;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -43,7 +45,10 @@ public class UpgradeSystem : MonoBehaviour
     {
         UpgradeInterpreter.ApplyUpgrade(upgrade, Player.GetPlayer());
 
-        HideCards();
+        if (!developerMode)
+        {
+            HideCards();
+        }
     }
 
     public void ReloadUpgrades()

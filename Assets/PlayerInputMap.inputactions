@@ -7,7 +7,7 @@
             "id": "9615d985-71a2-4beb-810f-fc7f76560f3e",
             "actions": [
                 {
-                    "name": "Interact",
+                    "name": "Escape",
                     "type": "Button",
                     "id": "54b6a2b8-f764-4699-8059-2fae3b027acf",
                     "expectedControlType": "",
@@ -93,11 +93,11 @@
                 {
                     "name": "",
                     "id": "b39977a2-3de4-4b52-8983-e59b33531adc",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Interact",
+                    "action": "Escape",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
