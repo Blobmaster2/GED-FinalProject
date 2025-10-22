@@ -23,7 +23,7 @@ public class EnemyFactory : MonoBehaviour
         }
     }
 
-    public GameObject SpawnEnemy(string enemyID, Vector3 position)
+    public GameObject SpawnEnemy(string enemyID, Vector2 position)
     {
         if (enemyMap.TryGetValue(enemyID, out GameObject prefab))
         {
