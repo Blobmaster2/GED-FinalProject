@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-    [SerializeField] private int spawnCount; // how many enemies to spawn according to the wave
+    [SerializeField] private int spawnCount; // how many enemies to spawn according to the first wave
     [SerializeField] private float waveBasedSpawnScale; // scaling between spawn count on each wave
                                                         // (eg. first wave -> 10 enemies
                                                         // while second wave -> 12 enemies;
                                                         // thereby giving it a 1.2 increase in between spawns.)
-    [SerializeField] private int spawnLevel; // level of enemies that are spawning
+    [SerializeField] private int spawnLevel; // level of enemies that are spawning first wave
     [SerializeField] private float timeBetweenSpawns; // time between spawns (not time between waves as time between
                                                       // waves will remain the same every wave
     [SerializeField] private int spawnRadius; // the spawn radius around the player that the enemies are allowed to
@@ -15,6 +15,8 @@ public class WaveSpawner : MonoBehaviour
     
     private Vector2 destinationPosition = new Vector2(); // this variable is to replaced with a *global variable* that
                                                          // keeps track of the player position
+
+    private int waveCount = 1;
     
     // this script should run a timer and spawn enemies according to the level and abilities of the player
     
@@ -26,6 +28,16 @@ public class WaveSpawner : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        
+    }
+
+    private void DetermineSpawnCount()
+    {
+        
+    }
+
+    private void DetermineSpawnLevel()
     {
         
     }
