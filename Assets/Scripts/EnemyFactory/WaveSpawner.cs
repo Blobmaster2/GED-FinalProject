@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
@@ -10,13 +11,20 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private int spawnLevel; // level of enemies that are spawning first wave
     [SerializeField] private float timeBetweenSpawns; // time between spawns (not time between waves as time between
                                                       // waves will remain the same every wave
-    [SerializeField] private int spawnRadius; // the spawn radius around the player that the enemies are allowed to
-                                              // spawn in
+    [SerializeField] private int spawnRadiusMin; // the spawn radius around the player that the enemies are allowed to
+    [SerializeField] private int spawnRadiusMax; // spawn in
+
+    [SerializeField] private string[] enemyIDs;
     
     private Vector2 destinationPosition; // this variable is to replaced with a *global variable* that
-                                                         // keeps track of the player position
+                                        // keeps track of the player position
 
-    private int waveCount = 1;
+    private float spawnTimer;
+    
+    private List<string> enemyPool = new List<string>();
+                                                         
+
+    private int waveCount = 0;
 
     private EnemyFactory factory;
     
@@ -43,10 +51,18 @@ public class WaveSpawner : MonoBehaviour
     {
         
     }
+
+    private void CreateWave()
+    {
+        
+    }
     
     private void SpawnNextWave()
     {
-        
+        waveCount++;
+        DetermineSpawnCount();
+        DetermineSpawnLevel();
+
     }
 
 }

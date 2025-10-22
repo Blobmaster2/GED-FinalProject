@@ -4,6 +4,13 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager Instance { get; set; }
 
+    private int playerLevel;
+    private int PlayerLevel
+    {
+        get => playerLevel;
+        set => playerLevel = value < 0 ? 0 : value;
+    }
+
     private void Awake()
     {
         // Check if an instance already exists
