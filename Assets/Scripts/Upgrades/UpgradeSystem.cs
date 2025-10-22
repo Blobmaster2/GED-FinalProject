@@ -19,14 +19,9 @@ public class UpgradeSystem : MonoBehaviour
             Instance = this;
         }
 
-        foreach (var card in cards)
-        {
-            gameObject.SetActive(false);
-        }
+        HideCards();
 
-        var json = Resources.Load<TextAsset>("Upgrades");
-
-        UpgradeManager.LoadUpgrades(json.text);
+        ReloadUpgrades();
     }
 
     public void RollCards()
@@ -47,5 +42,22 @@ public class UpgradeSystem : MonoBehaviour
     public void ApplyUpgrade(Upgrade upgrade)
     {
         UpgradeInterpreter.ApplyUpgrade(upgrade, Player.GetPlayer());
+
+        HideCards();
+    }
+
+    public void ReloadUpgrades()
+    {
+        var json = Resources.Load<TextAsset>("Upgrades");
+
+        UpgradeManager.LoadUpgrades(json.text);
+    }
+
+    private void HideCards()
+    {
+        foreach (var card in cards)
+        {
+            card.gameObject.SetActive(false);
+        }
     }
 }

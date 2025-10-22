@@ -37,6 +37,12 @@ public static class UpgradeInterpreter
                     player.bulletCount += (int)value;
 
                     break;
+
+                case "shoot_cooldown":
+
+                    player.totalBulletCooldown /= 1 + (value / 100);
+
+                    break;
             }
         }
     }

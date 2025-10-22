@@ -36,6 +36,18 @@
     ]
   },
   {
+    "Name": "Shooting Speed",
+    "Description": "Decrease the time between shots by 10%",
+    "Rarity": 0,
+    "Weight": 20,
+    "Modifiers": [
+      {
+        "Key": "shoot_cooldown",
+        "Value": 10.0
+      }
+    ]
+  },
+  {
     "Name": "Bullet Count",
     "Description": "Increase number of bullets fired by 1",
     "Rarity": 3,

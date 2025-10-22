@@ -29,9 +29,13 @@ public class PlayerControls : MonoBehaviour
     {
         var shootDir = playerInput.actions["ShootDirection"].ReadValue<Vector2>();
 
+        Debug.Log("SHOOT: " + shootDir);
+
         Shoot(shootDir);
 
         var input = playerInput.actions["Move"].ReadValue<Vector2>();
+
+        Debug.Log("MOVE: " + input);
 
         if (input != moveDir)
         {
