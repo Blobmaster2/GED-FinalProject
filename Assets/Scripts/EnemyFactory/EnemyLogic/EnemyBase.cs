@@ -27,8 +27,9 @@ public abstract class EnemyBase : MonoBehaviour
             speed * Time.deltaTime);
     }
 
-    private void OnDestroy()
+    private void Die()
     {
-        throw new NotImplementedException(); // add score addition here
+        Debug.Log($"Score to be added {deathScore}");
+        Destroy(gameObject);
     }
 }

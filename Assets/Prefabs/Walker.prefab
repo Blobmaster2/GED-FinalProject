@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7484883227817179395}
   - component: {fileID: 4267450997995570283}
+  - component: {fileID: -312687913991755985}
   m_Layer: 0
   m_Name: Walker
   m_TagString: Untagged
@@ -87,3 +88,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-312687913991755985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3279105767081240433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676b6f4caf9024c31ba37b47500ae6a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  maxHealth: 10
+  speed: 2
+  attackCoolDown: 10
+  attackDamage: 5
+  deathScore: 10

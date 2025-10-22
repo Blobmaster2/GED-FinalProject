@@ -261,7 +261,7 @@ MonoBehaviour:
   spawnCount: 3
   waveBasedSpawnScale: 1.2
   spawnLevel: 0
-  timeBetweenSpawns: 10
+  timeBetweenSpawns: 30
   spawnRadiusMin: 10
   spawnRadiusMax: 20
   enemyIDs:

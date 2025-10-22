@@ -9,7 +9,7 @@ public class WaveSpawner : MonoBehaviour
                                                         // while second wave -> 12 enemies;
                                                         // thereby giving it a 1.2 increase in between spawns.)
     [SerializeField] private int spawnLevel = 1; // level of enemies that are spawning first wave
-    [SerializeField] private float timeBetweenSpawns = 10; // time between spawns (not time between waves as time
+    [SerializeField] private float timeBetweenSpawns = 30; // time between spawns (not time between waves as time
                                                            // between waves will remain the same every wave
     [SerializeField] private int spawnRadiusMin = 5;  // the spawn radius around the player that the enemies are
     [SerializeField] private int spawnRadiusMax = 20; // allowed to spawn in
@@ -21,7 +21,7 @@ public class WaveSpawner : MonoBehaviour
 
     private float spawnTimer;
 
-    private int waveCount = 0;
+    private int waveCount = 0; // will be used in the future iteration
 
     private EnemyFactory factory;
     
@@ -31,12 +31,18 @@ public class WaveSpawner : MonoBehaviour
     void Start()
     {
         factory = GetComponent<EnemyFactory>();
+        spawnTimer = timeBetweenSpawns;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        spawnTimer += Time.deltaTime;
+        if (spawnTimer >= timeBetweenSpawns)
+        {
+            spawnTimer = 0;
+            SpawnNextWave();
+        }
     }
 
     private void DetermineSpawnCount()
@@ -69,6 +75,7 @@ public class WaveSpawner : MonoBehaviour
     
     private void SpawnNextWave()
     {
+        Debug.Log("Spawning next wave");
         waveCount++;
         DetermineSpawnCount();
         DetermineSpawnLevel();
