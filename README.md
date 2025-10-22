@@ -5,7 +5,7 @@
 | Name | Student ID |
 | :-: | :-: |
 | Scott | Student ID here |
-| Udey | Student ID here |
+| Udey | 100918410 |
 | Sidharth | 100938544 |
 
 ## About
