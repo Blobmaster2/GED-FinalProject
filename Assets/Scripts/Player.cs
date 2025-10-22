@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float moveSpeed { get; private set; } = 7.5f;
+    public float moveSpeed { get; private set; } = 4f;
 
     void Start()
     {
