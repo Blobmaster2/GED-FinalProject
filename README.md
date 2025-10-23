@@ -14,12 +14,16 @@ About the game
 
 ## Singleton
 
+GameManager gets and sets player level, score and position for other objects to reference
+
 ## Command
 Flowchart - https://github.com/user-attachments/assets/d7a183e4-ebf4-45d0-b505-6f9fc67b2ffc  
 Save command that will save the score from a run to a JSON file.  
 Delete Command that will delete the JSON file containing the score information.
 
 ## Factory
+
+EnemyFactory adds a layer of abstraction between Wavespawner spawning the enemies and instantiating the actual enemies into the game thereby making it easier to make changes to the enemies easier.
 
 ## Plugin/DLL
 
