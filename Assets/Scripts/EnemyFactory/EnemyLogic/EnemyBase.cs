@@ -33,6 +33,11 @@ public abstract class EnemyBase : MonoBehaviour
         }
     }
 
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+    }
+
     private void Die()
     {
         Debug.Log($"Score to be added {deathScore}");
