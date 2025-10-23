@@ -655,7 +655,7 @@ GameObject:
   - component: {fileID: 817207209}
   - component: {fileID: 817207210}
   - component: {fileID: 817207211}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -915,7 +915,7 @@ GameObject:
   m_Component:
   - component: {fileID: 945360367}
   - component: {fileID: 945360366}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: BulletFactory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1381,7 +1381,7 @@ GameObject:
   - component: {fileID: 1330250869}
   - component: {fileID: 1330250868}
   - component: {fileID: 1330250867}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1704,9 +1704,9 @@ GameObject:
   - component: {fileID: 1509921199}
   - component: {fileID: 1509921201}
   - component: {fileID: 1509921202}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2507,7 +2507,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1716737506}
   - component: {fileID: 1716737507}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

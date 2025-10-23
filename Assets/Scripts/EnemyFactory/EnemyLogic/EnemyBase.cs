@@ -34,4 +34,16 @@ public abstract class EnemyBase : MonoBehaviour
         Debug.Log($"Score to be added {deathScore}");
         Destroy(gameObject);
     }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+             Debug.Log("Player collided");
+        }
+        else if (other.gameObject.CompareTag($"PlayerBullet"))
+        {
+            Debug.Log("Bullet collided");
+        }
+    }
 }
