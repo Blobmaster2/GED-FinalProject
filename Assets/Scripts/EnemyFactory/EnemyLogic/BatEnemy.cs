@@ -4,6 +4,6 @@ public class BatEnemy : EnemyBase
 {
     private protected override void OnSpawn()
     {
-        Debug.Log("Spawning bat");
+        // Debug.Log("Spawning bat");
     }
 }

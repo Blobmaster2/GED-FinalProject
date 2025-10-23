@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     }
     
     public static Vector3 PlayerPosition;
+    
+    public static int PlayerScore;
 
     private void Awake()
     {

@@ -11,6 +11,9 @@ public abstract class EnemyBase : MonoBehaviour
     [SerializeField] private int deathScore;
     
     private Rigidbody2D rb;
+
+    private bool canAttack;
+    private float attackTimer;
     
     private void Start()
     {
@@ -23,6 +26,13 @@ public abstract class EnemyBase : MonoBehaviour
 
     private void Update()
     {
+        attackTimer += Time.deltaTime;
+        if (attackTimer > attackCoolDown)
+        {
+            attackTimer = 0.0f;
+            canAttack = true;
+        }
+        
         Vector2 direction = (GameManager.PlayerPosition - transform.position).normalized;
 
         rb.linearVelocity = direction * speed;
@@ -40,19 +50,27 @@ public abstract class EnemyBase : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log($"Score to be added {deathScore}");
+        // Debug.Log($"Score to be added {deathScore}");
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    // private void OnCollisionEnter2D(Collision2D other)
+    // {
+    //     if (other.gameObject.CompareTag("Player"))
+    //     {
+    //         other.gameObject.GetComponent<PlayerStats>().TakeDamage(attackDamage);
+    //     }
+    // }
+
+    private void OnCollisionStay(Collision other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-             Debug.Log("Player collided");
-        }
-        if (other.gameObject.CompareTag("Bullet"))
-        {
-            Debug.Log("Bullet collided");
+            if (canAttack)
+            {
+                other.gameObject.GetComponent<PlayerStats>().TakeDamage(attackDamage);
+                canAttack = false;
+            }
         }
     }
 }
