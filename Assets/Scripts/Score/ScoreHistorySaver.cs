@@ -34,7 +34,7 @@ namespace Score
                 playerName = playerName,
                 score = score,
                 savedAt = DateTime.Now.ToString("G"),
-                runId = Guid.NewGuid().ToString("N")
+                runId = Guid.NewGuid().ToString("D")
             };
 
             history.runs.Add(run);
@@ -66,17 +66,6 @@ namespace Score
                 history = null;
                 return false;
             }
-        }
-
-        public static bool TryGetLastRun(out ScoreRun lastRun)
-        {
-            if (TryLoadHistory(out var history) && history.runs.Count > 0)
-            {
-                lastRun = history.runs[^1];
-                return true;
-            }
-            lastRun = null;
-            return false;
         }
 
         public static void DeleteHistory()
