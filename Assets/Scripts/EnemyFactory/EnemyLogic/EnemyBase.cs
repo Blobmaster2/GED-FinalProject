@@ -54,22 +54,16 @@ public abstract class EnemyBase : MonoBehaviour
         Destroy(gameObject);
     }
 
-    // private void OnCollisionEnter2D(Collision2D other)
-    // {
-    //     if (other.gameObject.CompareTag("Player"))
-    //     {
-    //         other.gameObject.GetComponent<PlayerStats>().TakeDamage(attackDamage);
-    //     }
-    // }
-
-    private void OnCollisionStay(Collision other)
+    private void OnCollisionStay2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log("attack!");
             if (canAttack)
             {
                 other.gameObject.GetComponent<PlayerStats>().TakeDamage(attackDamage);
                 canAttack = false;
+                attackTimer = 0.0f; // to avoid rare but possible double attacks
             }
         }
     }
