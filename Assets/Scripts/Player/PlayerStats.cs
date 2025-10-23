@@ -5,6 +5,8 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private float maxHealth = 20;
     
     private float currentHealth;
+    
+    public float GetCurrentHealth() => currentHealth;
 
     void Start()
     {
