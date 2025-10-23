@@ -29,6 +29,8 @@ public class PlayerControls : MonoBehaviour
 
     private void Update()
     {
+        GameManager.PlayerPosition = transform.position;
+        
         var shootDir = playerInput.actions["ShootDirection"].ReadValue<Vector2>();
 
         Shoot(shootDir);

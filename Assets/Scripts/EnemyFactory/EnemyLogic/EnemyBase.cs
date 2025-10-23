@@ -10,8 +10,11 @@ public abstract class EnemyBase : MonoBehaviour
     [SerializeField] private float attackDamage;
     [SerializeField] private int deathScore;
     
+    private Rigidbody2D rb;
+    
     private void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         health = maxHealth;
         OnSpawn();
     }
@@ -20,8 +23,9 @@ public abstract class EnemyBase : MonoBehaviour
 
     private void Update()
     {
-        transform.position = Vector3.Lerp(transform.position, GameManager.PlayerPosition, 
-            speed * Time.deltaTime);
+        Vector2 direction = (GameManager.PlayerPosition - transform.position).normalized;
+
+        rb.linearVelocity = direction * speed;
 
         if (health <= 0)
         {
@@ -41,7 +45,7 @@ public abstract class EnemyBase : MonoBehaviour
         {
              Debug.Log("Player collided");
         }
-        else if (other.gameObject.CompareTag($"PlayerBullet"))
+        if (other.gameObject.CompareTag("Bullet"))
         {
             Debug.Log("Bullet collided");
         }

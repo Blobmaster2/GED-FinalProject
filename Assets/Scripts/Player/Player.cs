@@ -33,8 +33,6 @@ public class Player : MonoBehaviour
         }
 
         bulletCooldown -= Time.deltaTime;
-
-        GameManager.PlayerPosition = transform.position;
     }
 
     public void Shoot(Vector2 direction)

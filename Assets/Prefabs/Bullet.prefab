@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1170337846707981936}
   - component: {fileID: 3642183971017648156}
-  - component: {fileID: 4099029489143578360}
+  - component: {fileID: -407434372961621607}
   - component: {fileID: 4592814436780907398}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: PlayerBullet
+  m_TagString: Undefined
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89,7 +89,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &4099029489143578360
+--- !u!58 &-407434372961621607
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

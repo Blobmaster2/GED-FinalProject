@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -9220965203934213743}
   - component: {fileID: -1381612990040874709}
   - component: {fileID: -312687913991755985}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Walker
   m_TagString: Enemy
   m_Icon: {fileID: 0}
