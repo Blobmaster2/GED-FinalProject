@@ -655,7 +655,7 @@ GameObject:
   - component: {fileID: 817207209}
   - component: {fileID: 817207210}
   - component: {fileID: 817207211}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -915,7 +915,7 @@ GameObject:
   m_Component:
   - component: {fileID: 945360367}
   - component: {fileID: 945360366}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BulletFactory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -996,6 +996,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1028016426}
+  - component: {fileID: 1028016428}
+  - component: {fileID: 1028016427}
   m_Layer: 0
   m_Name: Spawner Singleton
   m_TagString: Untagged
@@ -1018,6 +1020,44 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1028016427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028016425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7927532345a4c380aeb4821cb5f54c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - id: bat
+    prefab: {fileID: 9086508620492888582, guid: dc1ee7f58bcee40ddbc3d764f7b66fa1, type: 3}
+  - id: walker
+    prefab: {fileID: 3279105767081240433, guid: b16a5163f0fb84fa29c91e9c4e214ee9, type: 3}
+--- !u!114 &1028016428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028016425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e03b2302e329d18469942255c32942a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnCount: 3
+  waveBasedSpawnScale: 1.2
+  spawnLevel: 1
+  timeBetweenSpawns: 30
+  spawnRadiusMin: 5
+  spawnRadiusMax: 20
+  enemyIDs:
+  - bat
+  - walker
 --- !u!1 &1126900922
 GameObject:
   m_ObjectHideFlags: 0
@@ -1341,7 +1381,7 @@ GameObject:
   - component: {fileID: 1330250869}
   - component: {fileID: 1330250868}
   - component: {fileID: 1330250867}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1499,6 +1539,7 @@ MonoBehaviour:
   - {fileID: 1126900929}
   - {fileID: 416670704}
   - {fileID: 1828855103}
+  developerMode: 0
 --- !u!4 &1374311791
 Transform:
   m_ObjectHideFlags: 0
@@ -1663,7 +1704,7 @@ GameObject:
   - component: {fileID: 1509921199}
   - component: {fileID: 1509921201}
   - component: {fileID: 1509921202}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2466,7 +2507,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1716737506}
   - component: {fileID: 1716737507}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

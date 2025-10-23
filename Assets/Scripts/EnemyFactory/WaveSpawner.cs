@@ -55,12 +55,13 @@ public class WaveSpawner : MonoBehaviour
         // scales the spawned enemy levels depending on the wave count
     }
 
-    private Vector2 GetRandomSpawnPosition()
+    private Vector3 GetRandomSpawnPosition()
     {
-        Vector2 spawnDirection = Random.insideUnitCircle.normalized;
+        Vector3 spawnDirection = Random.insideUnitCircle.normalized; // its a circle, so, 2D, i.e., Vector2
         float spawnDistance = Random.Range(spawnRadiusMin, spawnRadiusMax);
         
-        Vector2 spawnPos = playerPosition + (spawnDirection * spawnDistance);
+        Vector3 spawnPos = GameManager.PlayerPosition + (spawnDirection * spawnDistance); // put in parentheses
+                                                                                          // for easy readability
         
         return spawnPos;
     }

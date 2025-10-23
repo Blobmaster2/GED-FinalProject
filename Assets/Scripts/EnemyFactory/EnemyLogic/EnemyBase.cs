@@ -9,9 +9,6 @@ public abstract class EnemyBase : MonoBehaviour
     [SerializeField] private float attackCoolDown;
     [SerializeField] private float attackDamage;
     [SerializeField] private int deathScore;
-
-    private Vector2 destinationPosition = new Vector2(); // this variable is to replaced with a *global variable* that
-                                                         // keeps track of the player position
     
     private void Start()
     {
@@ -23,8 +20,13 @@ public abstract class EnemyBase : MonoBehaviour
 
     private void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, destinationPosition, 
+        transform.position = Vector3.Lerp(transform.position, GameManager.PlayerPosition, 
             speed * Time.deltaTime);
+
+        if (health <= 0)
+        {
+            Die();
+        }
     }
 
     private void Die()

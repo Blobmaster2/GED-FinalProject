@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
         get => playerLevel;
         set => playerLevel = value < 0 ? 0 : value;
     }
+    
+    public static Vector3 PlayerPosition;
 
     private void Awake()
     {
