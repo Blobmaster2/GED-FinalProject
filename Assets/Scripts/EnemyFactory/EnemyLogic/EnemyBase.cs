@@ -51,6 +51,7 @@ public abstract class EnemyBase : MonoBehaviour
     private void Die()
     {
         // Debug.Log($"Score to be added {deathScore}");
+        GameManager.PlayerScore += deathScore;
         Destroy(gameObject);
     }
 
@@ -58,7 +59,6 @@ public abstract class EnemyBase : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("attack!");
             if (canAttack)
             {
                 other.gameObject.GetComponent<PlayerStats>().TakeDamage(attackDamage);
