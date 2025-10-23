@@ -29,4 +29,4 @@ Also supports writing to JSON in the correct format.
 
 ## Video Report
 
-link to video report goes here
+https://youtu.be/t4EYMOf4jNM
