@@ -13,7 +13,7 @@
 About the game
 
 ## Singleton
-
+Flowchart - https://github.com/Blobmaster2/GED-FinalProject/blob/main/Singleton.png
 GameManager gets and sets player level, score and position for other objects to reference
 
 ## Command
@@ -22,7 +22,7 @@ Save command that will save the score from a run to a JSON file.
 Delete Command that will delete the JSON file containing the score information.
 
 ## Factory
-
+Flowchart - https://github.com/Blobmaster2/GED-FinalProject/blob/main/Factory.png
 EnemyFactory adds a layer of abstraction between Wavespawner spawning the enemies and instantiating the actual enemies into the game thereby making it easier to make changes to the enemies easier.
 
 ## Plugin/DLL
