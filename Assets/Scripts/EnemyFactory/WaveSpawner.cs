@@ -31,7 +31,8 @@ public class WaveSpawner : MonoBehaviour
 
     private EnemyFactory factory;
 
-    private bool allEnemiesDead = false;
+    private bool allEnemiesDead = true;
+    private bool enemiesDirty;
 
     // this script should run a timer and spawn enemies according to the level and abilities of the player
 
@@ -46,35 +47,37 @@ public class WaveSpawner : MonoBehaviour
 
     private void HandleEnemyDead()
     {
-        if (factory.spawnedEnemies.TrueForAll(enemy => !enemy.activeInHierarchy))
-        {
-            allEnemiesDead = true;
-        }
-        else
-        {
-            allEnemiesDead = false;
-        }
+        enemiesDirty = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (enemiesDirty)
+        {
+            bool allInactive = factory.spawnedEnemies.TrueForAll(enemy => !enemy.activeInHierarchy);
+
+            if (allInactive)
+            {
+                allEnemiesDead = true;
+            }
+
+            enemiesDirty = false;
+        }
+        
         spawnTimer += Time.deltaTime;
-        if (spawnTimer >= timeBetweenSpawns)
+        if (spawnTimer >= timeBetweenSpawns && allEnemiesDead)
         {
             spawnTimer = 0;
+            allEnemiesDead = false;
             
-            if (allEnemiesDead)
+            if (GameManager.DoPooling)
             {
-                if (GameManager.DoPooling)
-                {
-                    SpawnNextWave();
-                    allEnemiesDead = false;
-                }
-                else
-                {
-                    SpawnNextWave();
-                }
+                SpawnNextWave();
+            }
+            else
+            {
+                SpawnNextWave();
             }
         }
     }
@@ -118,7 +121,6 @@ public class WaveSpawner : MonoBehaviour
             for (int i = 0; i < enemiesInList; i++)
             {
                 GameObject enemy = factory.spawnedEnemies[i];
-                Debug.Log(enemy);
                 enemy.transform.position = GetRandomSpawnPosition();
                 enemy.SetActive(true);
                 reused++;

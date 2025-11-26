@@ -33,6 +33,8 @@ public class EnemyFactory : MonoBehaviour
         {
             GameObject enemy = Instantiate(prefab, position, Quaternion.identity);
             spawnedEnemies.Add(enemy);
+            var enemyBase = enemy.GetComponent<EnemyBase>();
+            enemyBase.SetFactory(this);
             return enemy;
         }
         else

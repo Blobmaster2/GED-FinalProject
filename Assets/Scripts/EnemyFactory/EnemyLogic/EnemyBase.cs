@@ -17,6 +17,11 @@ public abstract class EnemyBase : MonoBehaviour
     
     private EnemyFactory factory;
     
+    public void SetFactory(EnemyFactory factory)
+    {
+        this.factory = factory;
+    }
+    
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -57,8 +62,8 @@ public abstract class EnemyBase : MonoBehaviour
     private void Die()
     {
         // Debug.Log($"Score to be added {deathScore}");
-        GameManager.PlayerScore += deathScore;
         factory.OnEnemyDead?.Invoke();
+        GameManager.PlayerScore += deathScore;
         gameObject.SetActive(false);
         //Destroy(gameObject);
     }
