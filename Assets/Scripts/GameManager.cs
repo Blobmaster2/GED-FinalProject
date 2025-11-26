@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public bool DoPooling = true;
     private static GameManager Instance { get; set; }
 
     private int playerLevel;
