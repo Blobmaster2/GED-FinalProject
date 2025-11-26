@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
     {
         lifetime += Time.deltaTime;
 
-        if (lifetime > TOTAL_LIFETIME)
+        if (lifetime > TOTAL_LIFETIME && GameManager.DoPooling)
         {
             Destroy(gameObject);
         }
@@ -50,6 +50,7 @@ public class Bullet : MonoBehaviour
             if (collision.collider.gameObject.layer == ENEMY_LAYER)
             {
                 collision.gameObject.GetComponent<EnemyBase>().TakeDamage(20); // this value should probably be changed
+                Destroy(gameObject);
             }
         }
         else if (collision.collider.gameObject.layer == PLAYER_LAYER)

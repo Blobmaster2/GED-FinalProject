@@ -166,6 +166,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &343704926
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 343704928}
+  - component: {fileID: 343704927}
+  m_Layer: 0
+  m_Name: PowerupController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &343704927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343704926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3686aa8fe954a84d8d1ffc9a315dafe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerupPrefab: {fileID: 8930755039038501362, guid: e2e522bd0e1ad8f4995f952faac0b371, type: 3}
+  powerupTickRate: 10
+  powerupSpawnChance: 30
+  powerupTime: 30
+  minSpawnLocation: -48
+  maxSpawnLocation: 48
+--- !u!4 &343704928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343704926}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &416670701
 GameObject:
   m_ObjectHideFlags: 0
@@ -1220,6 +1270,7 @@ MonoBehaviour:
     prefab: {fileID: 9086508620492888582, guid: dc1ee7f58bcee40ddbc3d764f7b66fa1, type: 3}
   - id: walker
     prefab: {fileID: 3279105767081240433, guid: b16a5163f0fb84fa29c91e9c4e214ee9, type: 3}
+  spawnedEnemies: []
 --- !u!114 &1028016428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1233,6 +1284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnCount: 5
+  baseSpawnCount: 3
   waveBasedSpawnScale: 1.2
   spawnLevel: 1
   timeBetweenSpawns: 10
@@ -3991,3 +4043,4 @@ SceneRoots:
   - {fileID: 1980545618}
   - {fileID: 10998450}
   - {fileID: 1711227857}
+  - {fileID: 343704928}

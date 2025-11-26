@@ -19,5 +19,7 @@ namespace Score
             ScoreHistorySaver.SaveRun(score, playerName);
             Debug.Log($"[Command] Saved score {score} for {playerName}");
         }
+        
+        public void Undo() { }
     }
 }

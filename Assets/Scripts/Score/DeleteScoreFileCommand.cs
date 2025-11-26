@@ -9,5 +9,7 @@ namespace Score
             ScoreHistorySaver.DeleteHistory();
             Debug.Log("[Command] Deleted score history file");
         }
+
+        public void Undo() { }
     }
 }
