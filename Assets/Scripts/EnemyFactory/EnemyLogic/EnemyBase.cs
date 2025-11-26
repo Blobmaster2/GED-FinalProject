@@ -18,8 +18,12 @@ public abstract class EnemyBase : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        health = maxHealth;
         OnSpawn();
+    }
+
+    private void OnEnable()
+    {
+        health = maxHealth;
     }
 
     private protected abstract void OnSpawn();
@@ -52,7 +56,8 @@ public abstract class EnemyBase : MonoBehaviour
     {
         // Debug.Log($"Score to be added {deathScore}");
         GameManager.PlayerScore += deathScore;
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        //Destroy(gameObject);
     }
 
     private void OnCollisionStay2D(Collision2D other)

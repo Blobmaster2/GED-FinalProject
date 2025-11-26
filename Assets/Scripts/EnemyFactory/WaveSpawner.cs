@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Android;
 
 public class WaveSpawner : MonoBehaviour
 {
     [SerializeField] private float spawnCount = 3; // how many enemies to spawn according to the first wave
+    [SerializeField] private float baseSpawnCount = 3; // default enemy spawn count used for wave scaling
     [SerializeField] private float waveBasedSpawnScale = 1.2f; // scaling between spawn count on each wave
                                                         // (eg. first wave -> 10 enemies
                                                         // while second wave -> 12 enemies;
@@ -41,13 +43,31 @@ public class WaveSpawner : MonoBehaviour
         if (spawnTimer >= timeBetweenSpawns)
         {
             spawnTimer = 0;
-            SpawnNextWave();
+            if (GameManager.DoPooling)
+            {
+                //checks if all enemies in factory.spawnedEnemies (list of current enemies) are not active
+                if (factory.spawnedEnemies.TrueForAll(enemy => !enemy.activeInHierarchy))
+                { 
+                    SpawnNextWave();
+                }
+            }
+            else
+            {
+                SpawnNextWave();
+            }
         }
     }
 
     private void DetermineSpawnCount()
     {
         // scales the spawn count depending on the current wave count
+        //bad code
+        float scaled = spawnCount * Mathf.Pow(waveBasedSpawnScale,waveCount - 1);
+        spawnCount = Mathf.RoundToInt(scaled);
+        
+        //good code
+        //float scaled = baseSpawnCount * Mathf.Pow(waveBasedSpawnScale,waveCount - 1);
+        //spawnCount = Mathf.RoundToInt(scaled);
     }
 
     private void DetermineSpawnLevel()
@@ -68,9 +88,34 @@ public class WaveSpawner : MonoBehaviour
 
     private void CreateWave()
     {
-        for (int i = 0; i < spawnCount; i++)
+        if (GameManager.DoPooling)
         {
-            factory.SpawnEnemy(enemyIDs[Random.Range(0, enemyIDs.Length)], GetRandomSpawnPosition());
+            int enemiesInList = factory.spawnedEnemies.Count;
+            int targetCount = Mathf.RoundToInt(spawnCount);
+            int reused = 0;
+
+            for (int i = 0; i < enemiesInList; i++)
+            {
+                GameObject enemy = factory.spawnedEnemies[i];
+                Debug.Log(enemy);
+                enemy.transform.position = GetRandomSpawnPosition();
+                enemy.SetActive(true);
+                reused++;
+            }
+            
+            int newSpawnCount = Mathf.Max(0,targetCount - reused);
+
+            for (int i = 0; i < newSpawnCount; i++)
+            {
+                factory.SpawnEnemy(enemyIDs[Random.Range(0, enemyIDs.Length)], GetRandomSpawnPosition());
+            }
+        }
+        else
+        {
+            for (int i = 0; i < spawnCount; i++)
+            {
+                factory.SpawnEnemy(enemyIDs[Random.Range(0, enemyIDs.Length)], GetRandomSpawnPosition());
+            }
         }
     }
     

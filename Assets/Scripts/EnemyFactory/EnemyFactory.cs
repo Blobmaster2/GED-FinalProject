@@ -12,6 +12,8 @@ public class EnemyFactory : MonoBehaviour
 
     [SerializeField] private List<EnemyEntry> enemies;
     private Dictionary<string, GameObject> enemyMap;
+    
+    public List<GameObject> spawnedEnemies = new List<GameObject>();
 
     private void Awake()
     {
@@ -27,7 +29,9 @@ public class EnemyFactory : MonoBehaviour
     {
         if (enemyMap.TryGetValue(enemyID, out GameObject prefab))
         {
-            return Instantiate(prefab, position, Quaternion.identity);
+            GameObject enemy = Instantiate(prefab, position, Quaternion.identity);
+            spawnedEnemies.Add(enemy);
+            return enemy;
         }
         else
         {
