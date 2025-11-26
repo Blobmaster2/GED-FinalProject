@@ -15,6 +15,8 @@ public class EnemyFactory : MonoBehaviour
     
     public List<GameObject> spawnedEnemies = new List<GameObject>();
 
+    public System.Action OnEnemyDead;
+
     private void Awake()
     {
         enemyMap = new Dictionary<string, GameObject>();
