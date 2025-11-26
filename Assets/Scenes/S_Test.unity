@@ -438,6 +438,7 @@ MonoBehaviour:
     prefab: {fileID: 9086508620492888582, guid: dc1ee7f58bcee40ddbc3d764f7b66fa1, type: 3}
   - id: walker
     prefab: {fileID: 3279105767081240433, guid: b16a5163f0fb84fa29c91e9c4e214ee9, type: 3}
+  spawnedEnemies: []
 --- !u!114 &1044434792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -451,6 +452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnCount: 3
+  baseSpawnCount: 3
   waveBasedSpawnScale: 1.2
   spawnLevel: 0
   timeBetweenSpawns: 30
@@ -484,6 +486,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1432790348}
   - component: {fileID: 1432790347}
+  - component: {fileID: 1432790349}
   m_Layer: 0
   m_Name: PlayerTestObject
   m_TagString: Untagged
@@ -561,6 +564,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1432790349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432790346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 650691dd385124dc2b4fad83c106b895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 20
+--- !u!1 &1627104014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1627104016}
+  - component: {fileID: 1627104015}
+  m_Layer: 0
+  m_Name: AudioPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1627104015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627104014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4edbb8bdf2887344b14daa1b439da02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subjects:
+  - {fileID: 1432790349}
+--- !u!4 &1627104016
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627104014}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.238505, y: 0.24419093, z: -0.062285233}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -569,3 +631,4 @@ SceneRoots:
   - {fileID: 1044434793}
   - {fileID: 1432790348}
   - {fileID: 1037608845}
+  - {fileID: 1627104016}

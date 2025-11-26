@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : Subject
 {
     [SerializeField] private float maxHealth = 20;
     
@@ -25,5 +25,6 @@ public class PlayerStats : MonoBehaviour
     {
         Debug.Log("Player Health: " + currentHealth);
         currentHealth -= damage;
+        NotifyObservers("hit");
     }
 }
