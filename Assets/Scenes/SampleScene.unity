@@ -197,7 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerupPrefab: {fileID: 8930755039038501362, guid: e2e522bd0e1ad8f4995f952faac0b371, type: 3}
   powerupTickRate: 4
-  powerupSpawnChance: 30
+  powerupSpawnChance: 40
   powerupTime: 30
   minSpawnLocation: -48
   maxSpawnLocation: 48
