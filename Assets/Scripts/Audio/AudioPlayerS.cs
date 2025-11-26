@@ -46,6 +46,10 @@ namespace Audio
             {
                 audioManager.PlayClip(0);
             }
+            else if (eventName == "shoot")
+            {
+                audioManager.PlayClip(1);
+            }
         }
     }
 }
