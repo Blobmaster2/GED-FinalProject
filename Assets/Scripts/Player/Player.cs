@@ -8,7 +8,18 @@ public class Player : MonoBehaviour
     public float moveSpeed = 4f;
     public float speedMultiplier = 1f;
 
-    public float totalBulletCooldown = 1.5f;
+    public float TotalBulletCooldown
+    {
+        get => totalBulletCooldown;
+        set
+        {
+            totalBulletCooldown = value;
+            bulletCooldown = 0;
+        }
+    }
+
+    private float totalBulletCooldown = 1.5f;
+
     public int bulletCount = 1;
     public int bulletSpread = 30;
     public float bulletSpeed = 6f;

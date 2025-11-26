@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerupPrefab: {fileID: 8930755039038501362, guid: e2e522bd0e1ad8f4995f952faac0b371, type: 3}
-  powerupTickRate: 10
+  powerupTickRate: 4
   powerupSpawnChance: 30
   powerupTime: 30
   minSpawnLocation: -48
@@ -1982,7 +1982,6 @@ MonoBehaviour:
   bulletFactory: {fileID: 945360366}
   moveSpeed: 4
   speedMultiplier: 1
-  totalBulletCooldown: 1.5
   bulletCount: 1
   bulletSpread: 30
   bulletSpeed: 6
@@ -2835,33 +2834,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeList:
   - Name: Player Speed Increase
-    Description: Increase player speed by 5%
+    Description: Increase player speed by 10%
     Rarity: 0
     Weight: 10
     Modifiers:
     - Key: player_speed
-      Value: 5
+      Value: 10
   - Name: Bullet Speed Increase
-    Description: Increase bullet speed by 5%
+    Description: Increase bullet speed by 10%
     Rarity: 0
     Weight: 10
     Modifiers:
     - Key: bullet_speed
-      Value: 5
+      Value: 10
   - Name: Bullet Damage
-    Description: Increase bullet damage by 10%
+    Description: Increase bullet damage by 20%
     Rarity: 0
-    Weight: 10
+    Weight: 20
     Modifiers:
     - Key: bullet_damage
       Value: 10
   - Name: Shooting Speed
-    Description: Decrease the time between shots by 10%
+    Description: Decrease the time between shots by 20%
     Rarity: 0
     Weight: 20
     Modifiers:
     - Key: shoot_cooldown
-      Value: 10
+      Value: 20
   - Name: Bullet Count
     Description: Increase number of bullets fired by 1
     Rarity: 3
@@ -2869,6 +2868,15 @@ MonoBehaviour:
     Modifiers:
     - Key: bullet_count
       Value: 1
+  - Name: Damage and Speed
+    Description: Increase Damage and Speed of bullets by 20%
+    Rarity: 2
+    Weight: 5
+    Modifiers:
+    - Key: bullet_speed
+      Value: 20
+    - Key: bullet_damage
+      Value: 20
 --- !u!4 &1711227857
 Transform:
   m_ObjectHideFlags: 0

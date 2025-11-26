@@ -1,33 +1,33 @@
 [
   {
     "Name": "Player Speed Increase",
-    "Description": "Increase player speed by 5%",
+    "Description": "Increase player speed by 10%",
     "Rarity": 0,
     "Weight": 10,
     "Modifiers": [
       {
         "Key": "player_speed",
-        "Value": 5.0
+        "Value": 10.0
       }
     ]
   },
   {
     "Name": "Bullet Speed Increase",
-    "Description": "Increase bullet speed by 5%",
+    "Description": "Increase bullet speed by 10%",
     "Rarity": 0,
     "Weight": 10,
     "Modifiers": [
       {
         "Key": "bullet_speed",
-        "Value": 5.0
+        "Value": 10.0
       }
     ]
   },
   {
     "Name": "Bullet Damage",
-    "Description": "Increase bullet damage by 10%",
+    "Description": "Increase bullet damage by 20%",
     "Rarity": 0,
-    "Weight": 10,
+    "Weight": 20,
     "Modifiers": [
       {
         "Key": "bullet_damage",
@@ -37,13 +37,13 @@
   },
   {
     "Name": "Shooting Speed",
-    "Description": "Decrease the time between shots by 10%",
+    "Description": "Decrease the time between shots by 20%",
     "Rarity": 0,
     "Weight": 20,
     "Modifiers": [
       {
         "Key": "shoot_cooldown",
-        "Value": 10.0
+        "Value": 20.0
       }
     ]
   },
@@ -56,6 +56,22 @@
       {
         "Key": "bullet_count",
         "Value": 1.0
+      }
+    ]
+  },
+  {
+    "Name": "Damage and Speed",
+    "Description": "Increase Damage and Speed of bullets by 20%",
+    "Rarity": 2,
+    "Weight": 5,
+    "Modifiers": [
+      {
+        "Key": "bullet_speed",
+        "Value": 20.0
+      },
+      {
+        "Key": "bullet_damage",
+        "Value": 20.0
       }
     ]
   }

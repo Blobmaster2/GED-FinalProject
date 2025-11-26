@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,6 +15,14 @@ public class PowerupController : MonoBehaviour
 
     private List<GameObject> powerupPool = new List<GameObject>();
     private int maxPowerupCount = 10;
+
+    private class TimedCommand
+    {
+        public ICommand Command;
+        public float EndTime;
+    }
+
+    private List<TimedCommand> activeCommands = new List<TimedCommand>();
 
     private float tickTimer = 0;
 
@@ -42,19 +49,33 @@ public class PowerupController : MonoBehaviour
         {
             tickTimer = 0;
 
-            if (Random.Range(0, 100) < powerupSpawnChance)
+            RollForPowerup();
+        }
+
+        for (int i = activeCommands.Count - 1; i >= 0; i--)
+        {
+            if (Time.time >= activeCommands[i].EndTime)
             {
-                var powerup = CreatePowerup();
+                activeCommands[i].Command.Undo();
+                activeCommands.RemoveAt(i);
+            }
+        }
+    }
 
-                if (GameManager.DoPooling)
+    private void RollForPowerup()
+    {
+        if (Random.Range(0, 100) < powerupSpawnChance)
+        {
+            var powerup = CreatePowerup();
+
+            if (GameManager.DoPooling)
+            {
+                powerupPool.Add(powerup);
+
+                if (powerupPool.Count > maxPowerupCount)
                 {
-                    powerupPool.Add(powerup);
-
-                    if (powerupPool.Count > maxPowerupCount)
-                    {
-                        Destroy(powerupPool[0]);
-                        powerupPool.RemoveAt(0);
-                    }
+                    Destroy(powerupPool[0]);
+                    powerupPool.RemoveAt(0);
                 }
             }
         }
@@ -99,6 +120,26 @@ public class PowerupController : MonoBehaviour
         }
 
         return powerup;
+    }
+
+    public void ApplyPowerup(Powerup powerup)
+    {
+        powerup.Execute();
+
+        if (powerup.isInstant)
+        {
+            Destroy(powerup.gameObject);
+            return;
+        }
+
+        //remove from pool so it isn't deleted before undoing command.
+        powerupPool.Remove(powerup.gameObject); 
+
+        activeCommands.Add(new TimedCommand
+        {
+            Command = powerup,
+            EndTime = Time.time + powerupTime
+        });
     }
 }
 
