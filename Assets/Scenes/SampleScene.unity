@@ -1677,6 +1677,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subjects:
   - {fileID: 1509921203}
+  - {fileID: 1509921199}
 --- !u!4 &1213133228
 Transform:
   m_ObjectHideFlags: 0

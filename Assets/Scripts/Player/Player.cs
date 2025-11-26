@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Subject
 {
     [SerializeField] private BulletFactory bulletFactory;
 
@@ -54,6 +54,8 @@ public class Player : MonoBehaviour
         }
 
         ableToShoot = false;
+        
+        NotifyObservers("shoot"); // plays the audio
 
         switch (bulletType)
         {
