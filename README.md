@@ -54,7 +54,7 @@ Also supports writing to JSON in the correct format.
 
 ## Audio System
 
-Flowchart - `<link goes here>`
+Flowchart - https://github.com/Blobmaster2/GED-FinalProject/blob/main/Audio%20Systems.pdf
 
 The audio system is a hybrid of command, singleton and observer patterns combined. This system includes an AudioManager singleton, IObserver which is inherited by AudioPlayerS which also acts like it's a command pattern (the logic for playing the audio through AudioManager is simplified and modularised through AudioPlayerS) and Subject which is inherited by Player class and PlayerStats class. Player class notifies its observers about player shooting bullets while PlayerStats notifies about the player getting hurt. 
 
