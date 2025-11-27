@@ -36,6 +36,7 @@ public class UpgradeSystem : MonoBehaviour
 
             card.Title = upgrade.Name;
             card.Description = upgrade.Description;
+            card.SetRarity(upgrade.Rarity);
 
             card.gameObject.SetActive(true);
         }

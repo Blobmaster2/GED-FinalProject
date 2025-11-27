@@ -60,6 +60,21 @@ public class PowerupController : MonoBehaviour
                 activeCommands.RemoveAt(i);
             }
         }
+
+        if (activeCommands.Count == 0)
+        {
+            foreach (var renderer in Player.GetPlayer().GetComponentsInChildren<SpriteRenderer>())
+            {
+                renderer.color = Color.white;
+            }
+        }
+        else
+        {
+            foreach (var renderer in Player.GetPlayer().GetComponentsInChildren<SpriteRenderer>())
+            {
+                renderer.color = new Color(0.65f, 1, 1);
+            }
+        }
     }
 
     private void RollForPowerup()

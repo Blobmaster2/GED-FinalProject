@@ -85,13 +85,19 @@ public class WaveSpawner : MonoBehaviour
     private void DetermineSpawnCount()
     {
         // scales the spawn count depending on the current wave count
-        //bad code
-        float scaled = spawnCount * Mathf.Pow(waveBasedSpawnScale, waveCount - 1);
-        spawnCount = Mathf.RoundToInt(scaled);
 
-        //good code
-        //float scaled = baseSpawnCount * Mathf.Pow(waveBasedSpawnScale,waveCount - 1);
-        //spawnCount = Mathf.RoundToInt(scaled);
+        float scaled = 0;
+
+        if (GameManager.DoPooling)
+        {
+            scaled = baseSpawnCount * Mathf.Pow(waveBasedSpawnScale, waveCount - 1);
+        }
+        else
+        {
+            scaled = spawnCount * Mathf.Pow(waveBasedSpawnScale, waveCount - 1);
+        }
+        
+        spawnCount = Mathf.RoundToInt(scaled);
     }
 
     private void DetermineSpawnLevel()

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Player : Subject
@@ -29,6 +28,31 @@ public class Player : Subject
     private bool ableToShoot = true;
 
     private BulletType bulletType;
+
+    public int CurrentLevel
+    {
+        get => currentLevel;
+        set
+        {
+            currentLevel = value;
+            UpgradeSystem.Instance.RollCards();
+            Debug.Log("level: " + currentLevel);
+            Debug.Log("xp :" + xp);
+        }
+    }
+
+    private int currentLevel = 0;
+    private float xp;
+
+    public float XP
+    {
+        get => xp;
+        set
+        {
+            xp = value;
+            GetLevelProgress();
+        }
+    }
 
     void Update()
     {
@@ -81,6 +105,32 @@ public class Player : Subject
 
             bullet.Initialize(true, bulletDamage, bulletSpeed, direction);
         }
+    }
+
+    public float GetLevelProgress()
+    {
+        float A = 3.5f;
+        float B = -15f;
+        float C = 0f;
+
+        var level = Mathf.Max(Mathf.FloorToInt((A * Mathf.Log(xp + C)) + B), 0);
+
+        Debug.Log("Level: " + level + " xp: " + xp);
+
+        if (CurrentLevel < level)
+        {
+            CurrentLevel = level;
+        }
+
+        int nextLevel = CurrentLevel + 1;
+
+        float xpAtCurrent = Mathf.Exp((CurrentLevel - B) / A) - C;
+        float xpAtNext = Mathf.Exp((nextLevel - B) / A) - C;
+
+        float xpIntoLevel = xp - xpAtCurrent;
+        float xpNeeded = xpAtNext - xpAtCurrent;
+
+        return Mathf.Clamp01(xpIntoLevel / xpNeeded);
     }
 
     public static Player GetPlayer()

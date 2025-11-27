@@ -64,6 +64,7 @@ public abstract class EnemyBase : MonoBehaviour
         // Debug.Log($"Score to be added {deathScore}");
         factory.OnEnemyDead?.Invoke();
         GameManager.PlayerScore += deathScore;
+        Player.GetPlayer().XP += deathScore;
         gameObject.SetActive(false);
         //Destroy(gameObject);
     }

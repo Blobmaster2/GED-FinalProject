@@ -24,12 +24,14 @@ public class Powerup : MonoBehaviour, ICommand
             case PowerupType.XP:
 
                 isInstant = true;
+                Player.GetPlayer().XP += 15;
 
                 break;
 
             case PowerupType.Heal:
 
                 isInstant = true;
+                Player.GetPlayer().GetComponent<PlayerStats>().TakeDamage(-10);
 
                 break;
         }
