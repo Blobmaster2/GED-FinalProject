@@ -43,6 +43,15 @@ EnemyFactory adds a layer of abstraction between Wavespawner spawning the enemie
 
 - IObserver (AudioPlayerS) and Subject (Player and PlayerStats) (you can find the chart below at Audio System)
 
+## State
+
+- When a player collects a powerup, it puts them in a 'powerup state', which ends when all powerups wear off.
+
+## Object Pooling
+
+- Player bullets are pooled, if more are spawned than the allowed amount (100), the oldest bullet will disappear.
+- Powerups are also pooled, if more are spawned than the allowed amount (10), the oldest powerup will disappear.
+
 ## Plugin/DLL
 
 - Upgrade Manager

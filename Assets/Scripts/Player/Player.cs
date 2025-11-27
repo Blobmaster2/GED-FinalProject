@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Player : Subject
 {
@@ -99,12 +99,37 @@ public class Player : Subject
 
     private void SpawnBullets(Vector2 direction)
     {
+        float halfCone = 45 / 2f;
+
         for (int i = 0; i < bulletCount; i++)
         {
+            float angle = 0f;
+
+            if (bulletCount > 1)
+            {
+                float t = i / (float)(bulletCount - 1);   // goes 0 → 1
+                angle = Mathf.Lerp(-halfCone, halfCone, t);
+            }
+
+            // Rotate the base direction
+            Vector2 dir = RotateVector(direction, angle);
+
             var bullet = bulletFactory.SpawnBullet<Bullet>();
 
-            bullet.Initialize(true, bulletDamage, bulletSpeed, direction);
+            bullet.Initialize(true, bulletDamage, bulletSpeed, dir);
         }
+    }
+
+    Vector2 RotateVector(Vector2 v, float degrees)
+    {
+        float rad = degrees * Mathf.Deg2Rad;
+        float cos = Mathf.Cos(rad);
+        float sin = Mathf.Sin(rad);
+
+        return new Vector2(
+            v.x * cos - v.y * sin,
+            v.x * sin + v.y * cos
+        );
     }
 
     public float GetLevelProgress()
