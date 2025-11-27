@@ -18,6 +18,16 @@ About the game
 
 Flowchart - https://github.com/Blobmaster2/GED-FinalProject/blob/main/Singleton.png
 
+- Upgrade System
+
+This system can be accessed fully in the editor only, and allows developers to create new upgrades for cards. 
+It is a single instance that has a static reference, and it is implemented heavily into the DLL for reading and writing JSON, as well as applying the actual upgrade to the player.
+
+- PowerupController
+
+This system is a singleton that keeps track of how many powerups are on the field, and which ones are active on the player. 
+It has a static reference that is used to apply the powerup's effect via command (more later).
+
 GameManager gets and sets player level, score and position for other objects to reference
 
 - Audio Manager (you can find the chart below at Audio System)
@@ -31,6 +41,11 @@ Flowchart - https://github.com/user-attachments/assets/d7a183e4-ebf4-45d0-b505-6
 Save command that will save the score from a run to a JSON file.  
 Delete Command that will delete the JSON file containing the score information.
 
+- Powerup system
+
+When a powerup is collected, it creates a command for the PowerupController to store in a List, and the PowerupController sends Execute() to the powerup. 
+When the powerup wears off, it sends an Undo() command to the powerup, and the powerup removes the effect and deletes itself.
+
 ## Factory
 
 - Enemy Factory
@@ -39,6 +54,17 @@ Flowchart - https://github.com/Blobmaster2/GED-FinalProject/blob/main/Factory.pn
 
 EnemyFactory adds a layer of abstraction between Wavespawner spawning the enemies and instantiating the actual enemies into the game thereby making it easier to make changes to the enemies easier.
 
+- Bullet Factory
+
+The bullet factory can create different types of bullets, and has a generic SpawnBullet<T> method that a bullet type can be passed through. 
+It spawns bullets for players, and has the capability to spawn bullets for enemies.
+
+- PowerupController
+
+This Controller is responsible for spawning the powerups and assigning the effect to them. 
+There is a 40% chance every 4 seconds to spawn a powerup, and when it does so, it also assigns a random effect to the powerup, and customizes the base prefab accordingly.
+This allows for expanability later on, as it is very simple to add new powerup types.
+
 ## Observer
 
 - IObserver (AudioPlayerS) and Subject (Player and PlayerStats) (you can find the chart below at Audio System)
@@ -46,6 +72,8 @@ EnemyFactory adds a layer of abstraction between Wavespawner spawning the enemie
 ## State
 
 - When a player collects a powerup, it puts them in a 'powerup state', which ends when all powerups wear off.
+
+This gives the player feedback about whether a powerup is active or not.
 
 ## Object Pooling
 
