@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : Subject
 {
@@ -17,7 +18,7 @@ public class PlayerStats : Subject
     {
         if (currentHealth <= 0)
         {
-            Debug.Log("Player Died!");
+            SceneManager.LoadScene(1);
         }
     }
 

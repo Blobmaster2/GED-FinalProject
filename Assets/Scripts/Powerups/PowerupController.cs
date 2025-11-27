@@ -60,19 +60,24 @@ public class PowerupController : MonoBehaviour
                 activeCommands.RemoveAt(i);
             }
         }
+        
+        var obj = Player.GetPlayer();
 
-        if (activeCommands.Count == 0)
+        if (obj)
         {
-            foreach (var renderer in Player.GetPlayer().GetComponentsInChildren<SpriteRenderer>())
+            if (activeCommands.Count == 0)
             {
-                renderer.color = Color.white;
+                foreach (var renderer in obj.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    renderer.color = Color.white;
+                }
             }
-        }
-        else
-        {
-            foreach (var renderer in Player.GetPlayer().GetComponentsInChildren<SpriteRenderer>())
+            else
             {
-                renderer.color = new Color(0.65f, 1, 1);
+                foreach (var renderer in obj.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    renderer.color = new Color(0.65f, 1, 1);
+                }
             }
         }
     }

@@ -160,6 +160,11 @@ public class Player : Subject
 
     public static Player GetPlayer()
     {
-        return GameObject.Find("Player").GetComponent<Player>();
+        var obj = GameObject.Find("Player");
+        if (obj)
+        {
+            return obj.GetComponent<Player>();
+        }
+        return null;
     }
 }
