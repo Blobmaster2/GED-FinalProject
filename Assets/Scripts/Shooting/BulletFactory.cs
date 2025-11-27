@@ -6,8 +6,6 @@ public class BulletFactory : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
 
     private List<GameObject> bulletPool = new List<GameObject>();
-
-    private float bulletSpawnOffset = 2;
     private int maxBulletCount = 100;
 
     public T SpawnBullet<T>() where T : Bullet
@@ -18,7 +16,7 @@ public class BulletFactory : MonoBehaviour
 
         bullet.AddComponent<T>();
 
-        if (GameManager.DoPooling)
+        if (GameManager.DoPooling) //for profiling
         {
             bulletPool.Add(bullet);
 

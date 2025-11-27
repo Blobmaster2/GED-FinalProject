@@ -136,7 +136,9 @@ The audio system is a hybrid of command, singleton and observer patterns combine
 
 ## Video Report
 
-Progress check video - https://youtu.be/t4EYMOf4jNM
+Progress Check Video - https://youtu.be/t4EYMOf4jNM
+
+Final Presentation Video - https://youtu.be/x_2QRamEC9s
 
 ## Presentation
 

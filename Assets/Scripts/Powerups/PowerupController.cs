@@ -87,7 +87,7 @@ public class PowerupController : MonoBehaviour
         {
             var powerup = CreatePowerup();
 
-            if (GameManager.DoPooling)
+            if (GameManager.DoPooling) //for profiling
             {
                 powerupPool.Add(powerup);
 
