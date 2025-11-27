@@ -68,6 +68,7 @@ This allows for expanability later on, as it is very simple to add new powerup t
 ## Observer
 
 - IObserver (AudioPlayerS) and Subject (Player and PlayerStats) (you can find the chart below at Audio System)
+- The enemies send a signel to the spawner once they die using an event. The spawner listens for this event, instead of constantly checking for the status of the enemies.
 
 ## State
 
@@ -79,6 +80,7 @@ This gives the player feedback about whether a powerup is active or not.
 
 - Player bullets are pooled, if more are spawned than the allowed amount (100), the oldest bullet will disappear.
 - Powerups are also pooled, if more are spawned than the allowed amount (10), the oldest powerup will disappear.
+- Enemies are pooled, instead of consentantly deleteing and respawning new enemies, we turn of the killed enemies and relocate them before turning them back on. 
 
 ## Plugin/DLL
 
