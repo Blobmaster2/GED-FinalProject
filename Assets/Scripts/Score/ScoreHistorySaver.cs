@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Score
 {
@@ -20,6 +21,7 @@ namespace Score
         public class ScoreHistory
         {
             public List<ScoreRun> runs = new List<ScoreRun>();
+            public int score;
             public int totalRuns;
             public int bestScore;
             public string lastSaved;
@@ -38,7 +40,8 @@ namespace Score
             };
 
             history.runs.Add(run);
-
+            
+            history.score = score;
             history.totalRuns = Mathf.Max(history.totalRuns + 1, history.runs.Count);
             history.bestScore = Math.Max(history.bestScore, score);
             history.lastSaved = run.savedAt;

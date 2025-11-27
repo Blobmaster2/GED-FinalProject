@@ -28,7 +28,7 @@ namespace Score
                 ? $"Runs stored: {history.runs.Count}, Best: {history.bestScore}, Last saved: {history.lastSaved}"
                 : "No history saved yet.");
 
-            scoreText.text = history != null ? $"Best: {history.bestScore}, Last saved: {history.lastSaved}" 
+            scoreText.text = history != null ? $"Last run: {history.score}, Best: {history.bestScore}" 
                 : "No history saved yet.";
         }
         
@@ -39,6 +39,7 @@ namespace Score
 
         public void RestartLevel()
         {
+            GameManager.PlayerScore = 0;
             SceneManager.LoadScene(0);
         }
     }
