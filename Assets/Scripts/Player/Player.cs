@@ -54,6 +54,18 @@ public class Player : Subject
         }
     }
 
+    public bool PowerupActiveState
+    {
+        get => powerupActive;
+        set
+        {
+            powerupActive = value;
+            UpdateState(PowerupActiveState);
+        }
+    }
+
+    private bool powerupActive = false;
+
     void Update()
     {
         if (bulletCooldown < 0)
@@ -68,6 +80,24 @@ public class Player : Subject
         }
 
         bulletCooldown -= Time.deltaTime;
+    }
+
+    private void UpdateState(bool state)
+    {
+        if (state)
+        {
+            foreach (var renderer in Player.GetPlayer().GetComponentsInChildren<SpriteRenderer>())
+            {
+                renderer.color = new Color(0.65f, 1, 1);
+            }
+        }
+        else
+        {
+            foreach (var renderer in Player.GetPlayer().GetComponentsInChildren<SpriteRenderer>())
+            {
+                renderer.color = Color.white;
+            }
+        }
     }
 
     public void Shoot(Vector2 direction)

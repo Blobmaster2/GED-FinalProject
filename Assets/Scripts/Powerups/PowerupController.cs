@@ -58,26 +58,25 @@ public class PowerupController : MonoBehaviour
             {
                 activeCommands[i].Command.Undo();
                 activeCommands.RemoveAt(i);
+
+                CheckActiveCommands();
             }
         }
-        
+    }
+
+    private void CheckActiveCommands()
+    {
         var obj = Player.GetPlayer();
 
         if (obj)
         {
             if (activeCommands.Count == 0)
             {
-                foreach (var renderer in obj.GetComponentsInChildren<SpriteRenderer>())
-                {
-                    renderer.color = Color.white;
-                }
+                obj.PowerupActiveState = false;
             }
             else
             {
-                foreach (var renderer in obj.GetComponentsInChildren<SpriteRenderer>())
-                {
-                    renderer.color = new Color(0.65f, 1, 1);
-                }
+                obj.PowerupActiveState = true;
             }
         }
     }
