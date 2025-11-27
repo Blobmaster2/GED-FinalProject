@@ -93,7 +93,39 @@ Also supports writing to JSON in the correct format.
 
 ## Audio System
 
-Flowchart - https://github.com/Blobmaster2/GED-FinalProject/blob/main/Audio%20Systems.pdf
+Flowchart
+```mermaid
+classDiagram
+AudioManager : [SerializedField] AudioClip[] audioClips
+AudioManager : [SerializeField] AudioSource audioSource
+AudioManager : PlayClip(int clipIndex)
+
+IObserver : OnNotify(string eventName)
+
+AudioPlayerS : Subject[] subjects
+AudioPlayerS <-- IObserver
+AudioPlayerS --o AudioManager : OnNotify it runs PlayClip(0)
+
+Subject : AddObserver(IObserver observer)
+Subject : RemoveObserver(IObserver observer)
+Subject : NotifyObservers(string message)
+
+Player : Shoot(Vector2 direction)
+Player <-- Subject
+Player ..o AudioPlayerS : NotifyObserver("shoot")
+
+PlayerStats : TakeDamage(float damage)
+PlayerStats <-- Subject
+PlayerStats ..o AudioPlayerS : NotifyObserver("hit")
+```
+
+> **Legend**
+> 
+> Dotted lines $\to$ Indirect connection (eg: observer)
+> Solid lines $\to$ Directly connection
+> 
+> Circular arrow $\to$ Calling a function/variable from another class
+> Pointy arrow $\to$  Inherits from the function pointing from
 
 The audio system is a hybrid of command, singleton and observer patterns combined. This system includes an AudioManager singleton, IObserver which is inherited by AudioPlayerS which also acts like it's a command pattern (the logic for playing the audio through AudioManager is simplified and modularised through AudioPlayerS) and Subject which is inherited by Player class and PlayerStats class. Player class notifies its observers about player shooting bullets while PlayerStats notifies about the player getting hurt. 
 
