@@ -97,13 +97,13 @@ The audio system is a hybrid of command, singleton and observer patterns combine
 
 ### References used for Audio System
 
-Observer - https://www.youtube.com/watch
-Audio files generated using `sfxr` - https://www.drpetter.se/project_sfxr.html
+- Observer - https://www.youtube.com/watch
+- Audio files generated using `sfxr` - https://www.drpetter.se/project_sfxr.html
 
 ## Video Report
 
-https://youtu.be/t4EYMOf4jNM
+Progress check video - https://youtu.be/t4EYMOf4jNM
 
-## Presentaion
+## Presentation
 
 https://docs.google.com/presentation/d/1CAnIlv9s_S9XTEkxA7LymCoS1-PaGjN4dShnk40YMrs/edit?usp=sharing
