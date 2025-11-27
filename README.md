@@ -10,7 +10,7 @@
 
 ## About
 
-About the game
+A 2D top-down vampire-suvivors like game with highly optimized code (using design patterns).
 
 ## Singleton
 
