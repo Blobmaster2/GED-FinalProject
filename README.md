@@ -58,6 +58,11 @@ Flowchart - https://github.com/Blobmaster2/GED-FinalProject/blob/main/Audio%20Sy
 
 The audio system is a hybrid of command, singleton and observer patterns combined. This system includes an AudioManager singleton, IObserver which is inherited by AudioPlayerS which also acts like it's a command pattern (the logic for playing the audio through AudioManager is simplified and modularised through AudioPlayerS) and Subject which is inherited by Player class and PlayerStats class. Player class notifies its observers about player shooting bullets while PlayerStats notifies about the player getting hurt. 
 
+### References used for Audio System
+
+Observer - https://www.youtube.com/watch
+Audio files generated using `sfxr` - https://www.drpetter.se/project_sfxr.html
+
 ## Video Report
 
 https://youtu.be/t4EYMOf4jNM
